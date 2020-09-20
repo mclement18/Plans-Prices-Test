@@ -24,7 +24,7 @@ export default function Plan({plan, cycle}) {
           <p className={styles.monthly}>{currencySymbol(plan.Currency)} <span>{plan.Pricing === 0 ? 0 : monthlyPrice(plan.Pricing, cycle)}</span>/mo</p>
           {
             plan.Pricing === 0 ? null :
-            <p className={styles.annually}>Billed as {currencySymbol(plan.Currency) + annualPrice(plan.Pricing, cycle)} per year</p>
+            <p className={styles.annually}>Billed as {currencySymbol(plan.Currency)} {annualPrice(plan.Pricing, cycle)} per year</p>
           }
         </div>
       </header>
