@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styles from '../styles/Select.module.scss';
 import PropTypes from 'prop-types';
 
@@ -12,9 +13,16 @@ Option.propTypes = {
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
-export default function Select({options, selected = options[0].value, onChange}) {
+export default function Select({options, onChangeCallback}) {
+  const [value, setValue] = useState(options[0].value);
+
+  const onChange = ({target: {value}}) => {
+    setValue(value);
+    onChangeCallback(value);
+  };
+
   return (
-    <select value={selected} onChange={onChange} className={styles.select}>
+    <select value={value} onChange={onChange} className={styles.select}>
       {options.map(option => <Option
                               key={typeof option.value === 'number' ?
                                 option.value.toString() :
@@ -27,6 +35,5 @@ export default function Select({options, selected = options[0].value, onChange})
 
 Select.propTypes = {
   options: PropTypes.arrayOf(PropTypes.shape(Option.propTypes)).isRequired,
-  selected: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  onChange: PropTypes.func.isRequired
+  onChangeCallback: PropTypes.func.isRequired
 }
