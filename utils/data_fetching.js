@@ -25,7 +25,7 @@ export const requestPlans = async (currency = 'EUR') => {
 export const extractPlans = async (plans = ['plus', 'professional', 'visionary'], currency = 'EUR') => {
   const allPlans = await requestPlans(currency);
 
-  const selectedPlans = [freePlan, ...allPlans.filter(plan => plans.includes(plan.Name))];
+  const selectedPlans = [...freePlan.filter(plan => plan.Currency === currency), ...allPlans.filter(plan => plans.includes(plan.Name))];
 
   return selectedPlans.map(plan => {return {...plan, ...additionalInfo[plan.Name]}});
 };
