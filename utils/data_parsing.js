@@ -63,7 +63,7 @@ export const getVPNOption = (nb = 0) => {
 // Price info parsing
 const priceRounding = price => {
   if (!Number.isInteger(price)) {
-    price = `&tilde;${price.toFixed(2)}`;
+    price = `\u007E${price.toFixed(2)}`;
   }
 
   return price;
@@ -91,10 +91,10 @@ export const annualPrice = (pricing, cycle) => {
 export const currencySymbol = (currency = 'EUR') => {
   switch (currency) {
     case 'EUR':
-      return '&euro;';
+      return '\u20AC';
 
     case 'USD':
-      return '&dollar;';
+      return '\uFF04';
 
     default:
       return currency;
