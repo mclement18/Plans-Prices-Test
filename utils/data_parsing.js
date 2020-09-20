@@ -63,7 +63,7 @@ export const getVPNOption = (nb = 0) => {
 // Price info parsing
 const priceRounding = price => {
   if (!Number.isInteger(price)) {
-    price = `\u007E${price.toFixed(2)}`;
+    price = `\u007E ${price.toFixed(2)}`;
   }
 
   return price;
