@@ -10,6 +10,7 @@ import {
   getVPNOption,
   currencySymbol
 } from '../utils/data_parsing';
+import PropsTypes from 'prop-types';
 
 export default function Plan({plan, cycle}) {
   return (
@@ -32,7 +33,7 @@ export default function Plan({plan, cycle}) {
           <li>{getUserNb(plan.MaxMembers, plan.MultiUser)}</li>
           <li>{byteSizeToHumanRedable(plan.MaxSpace)} storage{perUser(plan.MultiUser)}</li>
           <li>{pluralize(plan.MaxAddresses, 'address')}{perUser(plan.MultiUser)}</li>
-          <li>{getDomainNb(plans.MaxDomains)}</li>
+          <li>{getDomainNb(plan.MaxDomains)}</li>
           {plan.Features !== 0 ? <li>{plan.Features}</li> : null}
           {plan.PrioritySupport ? <li>Priority support</li> : null}
           <li>{getVPNOption(plan.MaxVPN)}</li>
@@ -43,5 +44,35 @@ export default function Plan({plan, cycle}) {
         <a href={`/signup?plan=${plan.Name}&cur=${plan.Currency}`} className={styles.selection}>Select</a>
       </footer>
     </div>
-  )
+  );
 }
+
+Plan.propTypes = {
+  cycle: PropsTypes.number.isRequired,
+  plan: PropsTypes.shape({
+    Currency: PropsTypes.string,
+    ID: PropsTypes.string,
+    MaxAddresses: PropsTypes.number,
+    MaxDomains: PropsTypes.number,
+    MaxMembers: PropsTypes.number,
+    MaxSpace: PropsTypes.number,
+    MaxVPN: PropsTypes.number,
+    Name: PropsTypes.number,
+    Pricing: PropsTypes.oneOfType([
+      PropsTypes.number,
+      PropsTypes.shape({
+        1: PropsTypes.number,
+        12: PropsTypes.number,
+        24: PropsTypes.number
+      })
+    ]),
+    Description: PropsTypes.number,
+    Features: PropsTypes.oneOfType([
+      PropsTypes.number,
+      PropsTypes.string
+    ]),
+    PrioritySupport: PropsTypes.bool,
+    MostPopular: PropsTypes.bool,
+    MultiUser: PropsTypes.number
+  }).isRequired
+};
