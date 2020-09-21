@@ -11,8 +11,8 @@ const units = Object.freeze({
   0: 'B',
   1: 'KB',
   2: 'MB',
-  4: 'GB',
-  5: 'TB'
+  3: 'GB',
+  4: 'TB'
 });
 
 export const byteSizeToHumanRedable = (byteSize = 0, sizeUnits = units) => {

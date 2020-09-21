@@ -61,7 +61,7 @@ Plan.propTypes = {
     MaxMembers: PropsTypes.number,
     MaxSpace: PropsTypes.number,
     MaxVPN: PropsTypes.number,
-    Name: PropsTypes.number,
+    Name: PropsTypes.string,
     Pricing: PropsTypes.oneOfType([
       PropsTypes.number,
       PropsTypes.shape({
@@ -70,7 +70,7 @@ Plan.propTypes = {
         24: PropsTypes.number
       })
     ]),
-    Description: PropsTypes.number,
+    Description: PropsTypes.string,
     Features: PropsTypes.oneOfType([
       PropsTypes.number,
       PropsTypes.string
