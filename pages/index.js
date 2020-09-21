@@ -18,9 +18,9 @@ export default function PlansAndPrices() {
     })();
   }, [currency]);
 
-  const onChangeCycle = newCycle => setCycle(newCycle);
+  const onChangeCycle = ({target: {value}}) => setCycle(value);
 
-  const onChangeCurrency = newCurrency => setCurrency(newCurrency);
+  const onChangeCurrency = ({target: {value}}) => setCurrency(value);
 
   return (
     <div className={styles.container}>
@@ -33,8 +33,8 @@ export default function PlansAndPrices() {
         <h1 className={styles.title}>Plans &amp; Prices</h1>
 
         <div className={styles.inputs}>
-          <Select options={cycles} onChangeCallback={onChangeCycle} />
-          <Select options={currencies} onChangeCallback={onChangeCurrency} />
+          <Select options={cycles} value={cycle} onChange={onChangeCycle} />
+          <Select options={currencies} value={currency} onChange={onChangeCurrency} />
         </div>
 
         <div className={styles.grid}>

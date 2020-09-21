@@ -13,14 +13,7 @@ Option.propTypes = {
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
-export default function Select({options, onChangeCallback}) {
-  const [value, setValue] = useState(options[0].value);
-
-  const onChange = ({target: {value}}) => {
-    setValue(value);
-    onChangeCallback(value);
-  };
-
+export default function Select({options, value, onChange}) {
   return (
     <select value={value} onChange={onChange} className={styles.select}>
       {options.map(option => <Option
@@ -35,5 +28,6 @@ export default function Select({options, onChangeCallback}) {
 
 Select.propTypes = {
   options: PropTypes.arrayOf(PropTypes.shape(Option.propTypes)).isRequired,
-  onChangeCallback: PropTypes.func.isRequired
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  onChange: PropTypes.func.isRequired
 }
