@@ -29,7 +29,7 @@ export default function PlansAndPrices() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main>
         <h1 className={styles.title}>Plans &amp; Prices</h1>
 
         <div className={styles.inputs}>

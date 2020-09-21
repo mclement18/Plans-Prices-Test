@@ -1,37 +1,38 @@
 .container {
   min-height: 100vh;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.main {
-  padding: 5rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 2rem 0.5rem;
 }
 
 .title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
+  margin: 0 0 1.5em;
+  line-height: 1.5;
+  font-size: 2.5rem;
+  font-weight: normal;
 }
 
 .inputs {
-  
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin: 0 0 1.5em;
+
+  select {
+    margin-left: 1em;
+  }
 }
 
 .grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 
-  max-width: 800px;
-  margin-top: 3rem;
+  border: 2px solid lightgrey;
+  border-radius: 2px;
+
+  > div {
+    border-right: 2px solid lightgrey;
+
+    &:last-child {
+      border: none;
+    }
+  }
 }
