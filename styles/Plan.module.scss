@@ -1,43 +1,93 @@
 .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 
+  padding: 2.5em 1.5em;
+  text-align: center;
 }
 
 .header {
+  height: 6.5em;
+  margin: 0 0 2.5em;
 
+  h3 {
+    text-transform: uppercase;
+    font-size: 1.2em;
+    margin: 0 0 .5em;
+  }
 }
 
 .popular {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 100%;
 
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: .9em;
+  color: #53b32d;
 }
 
 .price {
+  p {
+    margin: 0;
+  }
 
+  .monthly {
+    margin: 0 0 .5em;
+
+    span {
+      font-size: 2em;
+    }
+  }
+
+  .annually {
+    font-size: .9em;
+  }
 }
 
-.monthly {
 
-}
-
-.annually {
-
-}
 
 .content {
-
+  margin: 0 0 2.5em;
 }
 
 .description {
-
+  font-size: 1.1em;
+  margin: 0 0 2.5em;
 }
 
 .details {
+  text-align: left;
+  list-style-type: "\2192    ";
+  margin: 0;
 
+  li {
+    margin: 0 0 1em;
+  }
 }
 
 .footer {
-
+  margin: auto 0 0 ;
 }
 
 .selection {
-  
+  padding: .7em 1.5em;
+  background: #688df3;
+  color: #fff;
+  border: 1px solid darken(#688df3, 15);
+  border-radius: 5px;
+
+  &:hover,
+  &:focus {
+    background: darken(#688df3, 5);
+  }
+
+  &:active {
+    background: darken(#688df3, 10);
+    border: 1px solid darken(#688df3, 25);
+  }
 }

@@ -16,9 +16,9 @@ import PropsTypes from 'prop-types';
 export default function Plan({plan, cycle}) {
   return (
     <div className={styles.card}>
+      {plan.MostPopular ? <span className={styles.popular}>Most Popular</span> : null}
+      
       <header className={styles.header}>
-        {plan.MostPopular ? <span className={styles.popular}>Most Popular</span> : null}
-
         <h3>{plan.Name}</h3>
         
         <div className={styles.price}>
