@@ -8,7 +8,8 @@ import {
   pluralize,
   getDomainNb,
   getVPNOption,
-  currencySymbol
+  currencySymbol,
+  isUpgradable
 } from '../utils/data_parsing';
 import PropsTypes from 'prop-types';
 
@@ -34,9 +35,9 @@ export default function Plan({plan, cycle}) {
 
         <ul className={styles.details}>
           <li>{getUserNb(plan.MaxMembers, plan.MultiUser)}</li>
-          <li>{byteSizeToHumanRedable(plan.MaxSpace)} storage{perUser(plan.MultiUser)}</li>
-          <li>{pluralize(plan.MaxAddresses, 'address')}{perUser(plan.MultiUser)}</li>
-          <li>{getDomainNb(plan.MaxDomains)}</li>
+          <li>{byteSizeToHumanRedable(plan.MaxSpace)} storage{perUser(plan.MultiUser)}{isUpgradable(plan.Upgradable)}</li>
+          <li>{pluralize(plan.MaxAddresses, 'address')}{perUser(plan.MultiUser)}{isUpgradable(plan.Upgradable)}</li>
+          <li>{getDomainNb(plan.MaxDomains)}{isUpgradable(plan.Upgradable)}</li>
           {plan.Features !== 0 ? <li>{plan.Features}</li> : null}
           {plan.PrioritySupport ? <li>Priority support</li> : null}
           <li>{getVPNOption(plan.MaxVPN)}</li>
@@ -76,6 +77,7 @@ Plan.propTypes = {
     ]),
     PrioritySupport: PropsTypes.bool,
     MostPopular: PropsTypes.bool,
-    MultiUser: PropsTypes.number
+    MultiUser: PropsTypes.number,
+    Upgradable: PropsTypes.bool
   }).isRequired
 };

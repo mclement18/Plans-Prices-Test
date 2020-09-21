@@ -33,7 +33,7 @@ export const pluralize = (n = 0, word = '') => {
 // User info parsing
 export const getUserNb = (nb = 0, max = 0) => {
   if (max > 0) {
-    return `${nb} - ${pluralize(max, 'user')}`;
+    return `${nb} - ${pluralize(max, 'user')} \u002A`;
   } else {
     return pluralize(nb, 'user');
   } 
@@ -56,7 +56,13 @@ export const getDomainNb = (nb = 0) => {
 
 // VPN info parsing
 export const getVPNOption = (nb = 0) => {
-  return nb > 0 ? 'Includes ProtonVPN' : 'ProtonVPN (optional)';
+  return nb > 0 ? 'Includes ProtonVPN' : 'ProtonVPN (optional) \u002A';
+};
+
+
+// Upgradable
+export const isUpgradable = (anwser = false) => {
+  return anwser ? ' \u002A' : null;
 };
 
 
