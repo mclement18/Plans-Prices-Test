@@ -1,9 +1,11 @@
 .select {
   font-size: 1em;
+  color:  #3d3d3d;
+
   border: 1px solid lightgrey;
   border-radius: 5px;
   padding: .5em 1.5em .5em .5em;
-  color:  #3d3d3d;
+
   background-image: url('/arrow_down.svg');
   background-repeat: no-repeat, repeat;
   background-position: right .7em top 50%, 0 0;
@@ -12,4 +14,11 @@
   -moz-appearance: none;
   -webkit-appearance: none;
   overflow: hidden;
+
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    border: 1px solid grey;
+  }
 }
